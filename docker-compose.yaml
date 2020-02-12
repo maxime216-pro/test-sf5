@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+    database:
+        image: postgres:11-alpine
+        ports: [5432]
+        environment:
+            POSTGRES_USER: skunky
+            POSTGRES_PASSWORD: skunky
+            POSTGRES_DB: skunkydb
