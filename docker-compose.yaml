@@ -8,3 +8,6 @@ services:
             POSTGRES_USER: skunky
             POSTGRES_PASSWORD: teoficom5
             POSTGRES_DB: skunkydb
+    redis:
+        image: redis:5.0.7-alpine
+        ports: [6379]
