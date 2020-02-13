@@ -15,7 +15,6 @@ class Comment extends Fixture  implements DependentFixtureInterface
         for ($i = 0; $i < 20; ++$i) {
             $comment = new EntityComment();
             $comment->setAuthor("author$i");
-            $comment->setCreatedAt(new DateTime());
             $comment->setText("commentaire numero $i");
             $comment->setEmail("emaildutype$i@gmail.com");
             if ($i < 4) {

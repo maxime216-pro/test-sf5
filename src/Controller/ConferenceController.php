@@ -22,7 +22,7 @@ class ConferenceController extends AbstractController
     }
 
     /**
-     * @Route("/conference", name="homepage")
+     * @Route("/", name="homepage")
      */
     public function index(ConferenceRepository $conferenceRepo)
     {
@@ -32,20 +32,25 @@ class ConferenceController extends AbstractController
     }
 
     /**
-     * @Route("/conference/{id}", name="conference")
+     * @Route("/conference/{slug}", name="conference")
      */
     public function show(Request $request,
         Conference $conference,
-        CommentRepository $commentRepo
+        CommentRepository $commentRepo,
+        ConferenceRepository $conferenceRepo
     )
     {
         $offset = max(0, $request->query->getInt('offset', 0));
         $paginator = $commentRepo->getCommentPaginator($conference, $offset);
+        
         return new Response($this->twig->render('conference/show.html.twig', [
+            'conferences' => $conferenceRepo->findAll(),
             'conference' => $conference,
             'comments' => $paginator,
+            //'comments' => $commentRepo->findBy(['conference' => $conference], ['createdAt' => 'DESC']),
             'previous' => $offset - CommentRepository::PAGINATOR_PER_PAGE,
             'next' => min(count($paginator), $offset + CommentRepository::PAGINATOR_PER_PAGE)
         ]));
+
     }
 }
