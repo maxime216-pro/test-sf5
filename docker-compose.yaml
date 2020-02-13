@@ -6,5 +6,5 @@ services:
         ports: [5432]
         environment:
             POSTGRES_USER: skunky
-            POSTGRES_PASSWORD: skunky
+            POSTGRES_PASSWORD: teoficom5
             POSTGRES_DB: skunkydb
