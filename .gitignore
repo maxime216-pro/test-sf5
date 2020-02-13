@@ -10,3 +10,4 @@
 ###< symfony/framework-bundle ###
 
 ./*.code-workspace
+/public/uploads
