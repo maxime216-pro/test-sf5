@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\Comment as EntityComment;
-use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -18,10 +17,13 @@ class Comment extends Fixture  implements DependentFixtureInterface
             $comment->setText("commentaire numero $i");
             $comment->setEmail("emaildutype$i@gmail.com");
             if ($i < 4) {
+                $comment->setState('published');
                 $comment->setConference($this->getReference('conf0'));
             } elseif ($i <10) {
+                $comment->setState('submitted');
                 $comment->setConference($this->getReference('conf1'));
             } else {
+                $comment->setState('spam');
                 $comment->setConference($this->getReference('conf2'));
             }
             $manager->persist($comment);
