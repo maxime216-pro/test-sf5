@@ -8,9 +8,15 @@ services:
             POSTGRES_USER: skunky
             POSTGRES_PASSWORD: teoficom5
             POSTGRES_DB: skunkydb
+
     redis:
         image: redis:5.0.7-alpine
         ports: [6379]
+
     rabbitmq:
         image: rabbitmq:3.8-management
         ports: [5672, 15672]
+
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports: [1025, 1080]
