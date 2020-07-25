@@ -1,6 +1,5 @@
-<ul>
 {% for conference in conferences %}
-    <li><a href="{{ path('conference', { slug: conference.slug }) }}">
+    <a class="nav-conference" href="{{ path('conference', { slug: conference.slug }) }}">
         {{ conference }}
-    </li></a>
+    </a>
 {% endfor %}

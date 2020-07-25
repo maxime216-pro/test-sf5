@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Entity\Conference;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
@@ -16,7 +17,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class CommentRepository extends ServiceEntityRepository
 {
-
+    private const DAYS_BEFORE_REJECTED_REMOVAL = 7;
     public const PAGINATOR_PER_PAGE = 10;
 
     public function __construct(ManagerRegistry $registry)
@@ -38,6 +39,29 @@ class CommentRepository extends ServiceEntityRepository
 
         return new Paginator($query);
     }
+
+    public function countOldRejected(): int
+    {
+        return $this->getOldRejectedQueryBuilder()->select('COUNT(c.id)')->getQuery()->getSingleScalarResult();
+    }
+
+    public function deleteOldRejected(): int
+    {
+        return $this->getOldRejectedQueryBuilder()->delete()->getQuery()->execute();
+    }
+
+    public function getOldRejectedQueryBuilder(): QueryBuilder
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.state = :state_rejected or c.state = :state_spam')
+            ->andWhere('c.createdAt < :date')
+            ->setParameters([
+                'state_rejected' => 'rejected',
+                'state_spam' => 'spam',
+                'date' => new \DateTime(-self::DAYS_BEFORE_REJECTED_REMOVAL.'days'),
+            ]);
+    }
+
 
     // /**
     //  * @return Comment[] Returns an array of Comment objects

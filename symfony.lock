@@ -1,4 +1,21 @@
 {
+    "api-platform/api-pack": {
+        "version": "v1.2.2"
+    },
+    "api-platform/core": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "a93061567140e386f107be75340ac2aee3f86cbf"
+        },
+        "files": [
+            "config/packages/api_platform.yaml",
+            "config/routes/api_platform.yaml",
+            "src/Entity/.gitignore"
+        ]
+    },
     "dama/doctrine-test-bundle": {
         "version": "4.0",
         "recipe": {
@@ -121,6 +138,12 @@
     "egulias/email-validator": {
         "version": "2.1.18"
     },
+    "fig/link-util": {
+        "version": "1.1.1"
+    },
+    "imagine/imagine": {
+        "version": "1.2.3"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -135,6 +158,18 @@
     },
     "monolog/monolog": {
         "version": "2.0.2"
+    },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "6388de23860284db9acce0a7a5d9d13153bcb571"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
+        ]
     },
     "nikic/php-parser": {
         "version": "v4.3.0"
@@ -154,6 +189,15 @@
     "php-webdriver/webdriver": {
         "version": "1.8.2"
     },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.2.0"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.3.0"
+    },
     "predis/predis": {
         "version": "v1.1.1"
     },
@@ -164,6 +208,9 @@
         "version": "1.0.0"
     },
     "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
@@ -366,6 +413,18 @@
             "config/packages/test/monolog.yaml"
         ]
     },
+    "symfony/notifier": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "c31585e252b32fe0e1f30b1f256af553f4a06eb9"
+        },
+        "files": [
+            "config/packages/notifier.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "v5.0.4"
     },
@@ -420,6 +479,9 @@
     "symfony/property-access": {
         "version": "v5.0.4"
     },
+    "symfony/property-info": {
+        "version": "v5.0.11"
+    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -457,6 +519,9 @@
     },
     "symfony/security-http": {
         "version": "v5.0.4"
+    },
+    "symfony/serializer": {
+        "version": "v5.0.11"
     },
     "symfony/service-contracts": {
         "version": "v2.0.1"
@@ -525,6 +590,9 @@
     "symfony/var-exporter": {
         "version": "v5.0.4"
     },
+    "symfony/web-link": {
+        "version": "v5.0.11"
+    },
     "symfony/web-profiler-bundle": {
         "version": "3.3",
         "recipe": {
@@ -537,6 +605,25 @@
             "config/packages/dev/web_profiler.yaml",
             "config/packages/test/web_profiler.yaml",
             "config/routes/dev/web_profiler.yaml"
+        ]
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.6",
+            "ref": "69e1d805ad95964088bd510c05995e87dc391564"
+        },
+        "files": [
+            "assets/css/app.css",
+            "assets/js/app.js",
+            "config/packages/assets.yaml",
+            "config/packages/prod/webpack_encore.yaml",
+            "config/packages/test/webpack_encore.yaml",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
         ]
     },
     "symfony/workflow": {
@@ -574,5 +661,11 @@
     },
     "webimpress/safe-writer": {
         "version": "2.0.0"
+    },
+    "webmozart/assert": {
+        "version": "1.9.1"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     }
 }

@@ -7,4 +7,6 @@ To handle message sycnhronously, launch the worker (for dev, watch some folder)
 To stop consume
 `symfony console messenger:stop-workers`
 
-check the port to catchmail ()it change on every docker-compose up (check server parameter in profiler as instance)
+check the port to catchmail, it change on every docker-compose up (check server parameter in profiler as instance)
+ -> change port in mailer.yaml cuz docker force us to rebuild when .env change...
+ `symfony open:local:webmail`
